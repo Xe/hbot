@@ -1,2 +1,3 @@
 --define: ssl
---threads: on
+--define: nimTypeNames
+--define: futureLogging
