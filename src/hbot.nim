@@ -1,4 +1,4 @@
-import asyncdispatch, dotenv, jester, os, strutils, prometheus
+import asyncdispatch, dotenv, os, strutils
 import hbotpkg/[hirc, within]
 
 const
@@ -6,17 +6,5 @@ const
 
 initDotEnv().overload
 hirc.init()
-
-settings:
-  port = getEnv("PORT").parseInt().Port
-  bindAddr = "0.0.0.0"
-
-routes:
-  get "/":
-    resp Http200, "hi", "text/plain"
-
-  get "/metrics":
-    let data = generateLatest()
-    resp Http200, data, "text/plain"
 
 runForever()

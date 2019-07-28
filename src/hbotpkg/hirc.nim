@@ -26,7 +26,7 @@ proc onIrcEvent*(client: AsyncIrc, event: IrcEvent) {.async.} =
           await client.privmsg(event.origin, punycodeConvert(args[1]))
         if args[0] == "!within":
           let
-            front = await hc.withinFront()
+            front = await withinFront()
           await client.privmsg(event.origin, fmt"Within front: {front}")
       echo(event.raw)
 
